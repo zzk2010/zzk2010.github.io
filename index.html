@@ -3,24 +3,27 @@
     <meta name="viewport" content="width=device-width,user-scalable=no" />
   </head>
   <body>
-    <div class="top"></div>
-    <div class="sidebar"></div>
-    <div class="content"></div>
-    .top {
-      position: absolute;
-      left: 0; right: 0;
-      height: 72px;
-    }
-    .sidebar {
+    <div class="top">
+      .top {
         position: absolute;
-        left: 0; top: 72px; bottom: 0;
-        width: 178px;
-    }
-    .content {
-        position: absolute;
-        left:178px; top: 72px; right: 0; bottom: 0;
-    }
-     <div class="top">
+        left: 0; right: 0;
+        height: 72px;
+      }
+    </div>
+    <div class="sidebar">
+      .sidebar {
+          position: absolute;
+          left: 0; top: 72px; bottom: 0;
+          width: 178px;
+      }
+    </div>
+    <div class="content">
+      .content {
+          position: absolute;
+          left:178px; top: 72px; right: 0; bottom: 0;
+      }
+    </div>
+    <div class="top">
         <label id="sideBarControl" for="sideToggle">显示/隐藏菜单</label>
     </div>
     <input type="checkbox" id="sideToggle">
