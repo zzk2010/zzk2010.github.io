@@ -1,3 +1,121 @@
 <html>
-  Hello!
+  <head>
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+  </head>
+  <body>
+    <div class="top"></div>
+    <div class="sidebar"></div>
+    <div class="content"></div>
+    .top {
+      position: absolute;
+      left: 0; right: 0;
+      height: 72px;
+    }
+    .sidebar {
+        position: absolute;
+        left: 0; top: 72px; bottom: 0;
+        width: 178px;
+    }
+    .content {
+        position: absolute;
+        left:178px; top: 72px; right: 0; bottom: 0;
+    }
+     <div class="top">
+        <label id="sideBarControl" for="sideToggle">显示/隐藏菜单</label>
+    </div>
+    <input type="checkbox" id="sideToggle">
+    <div class="sidebar">
+        <p>菜单内容</p>
+    </div>
+    <div class="content">
+    </div>
+    #sideToggle {
+        display: none;
+    }
+    .sidebar {
+        display: none;
+    }
+    .content {
+        position: absolute;
+        left:0; top: 72px; right: 0; bottom: 0;
+    }
+    #sideToggle:checked + .sidebar{display: block}
+    #sideToggle:checked ~ .content{left: 178px}
+    <div class="sidebar">
+        <p>菜单内容</p>
+        <ul class="nav">
+            <li><a id="_1" href="#">Menu1</a> </li>
+            <li><a id="_2" href="#">Menu2</a> </li>
+            <li><a id="_3" href="#">Menu3</a> </li>
+        </ul>
+    </div>
+    .nav {
+        list-style: none;
+        position: absolute;
+        left: 0;right: 0;
+        padding: 0;
+    }
+    .nav a:link{color: #000}
+    .nav a:visited {color: #000}
+    .nav a:hover {
+        color: #aaaaaa;
+    }
+    .nav li {
+        border: solid 1px;
+        padding: 5px 0 5px 0;
+        border-bottom-width: 0px;
+    }
+    .nav li:last-child {border-bottom-width: 1px}
+    .nav a {
+        text-decoration: none;
+    }
+    var items = document.querySelectorAll(".nav li");
+    [].forEach.call(items, function (item) {
+        item.addEventListener("click", function() {
+            var content = document.querySelector(".content");
+            content.innerHTML = this.textContent;
+        });
+    });
+    var items = document.querySelectorAll(".nav li");
+    [].forEach.call(items, function (item) {
+        item.addEventListener("click", function() {
+            Array.prototype.forEach.call(this.parentNode.children, function (child) {
+                child.classList.remove("active");
+            })
+            this.classList.add("active");
+            var content = document.querySelector(".content");
+            content.innerHTML = this.textContent;
+        });
+    });
+    li.active {
+      background-color: #f8f8f8;
+      border-right-width: 0px;
+    }
+    @media only screen and (min-width: 992px) {
+    .top {
+      height: 72px; }
+
+    .sidebar {
+      top: 72px;
+      width: 178px; }
+
+    .content {
+      top: 72px; }
+
+    #sideToggle:checked ~ .content {
+      left: 178px; } }
+  @media only screen and (max-width: 991px) {
+    .top {
+      height: 10%; }
+
+    .sidebar {
+      top: 10%;
+      width: 30%; }
+
+    .content {
+      top: 10%; }
+
+    #sideToggle:checked ~ .content {
+      left: 30%; } }
+  </body>
 </html>
