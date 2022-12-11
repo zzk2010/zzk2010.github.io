@@ -1,0 +1,22 @@
+#div_main{
+    position: relative;
+}
+#div_introduction{
+    left: 30px;
+    top: 100px;
+    position: absolute;
+    width: 200px;
+    border-style: solid;
+    border-color: rgb(255,96,0);
+    border-width: 2px;
+    z-index: 0;
+}
+#div_introduction p{
+    margin-left: 15px;
+}
+#copyright{
+    position: absolute;
+	bottom: 0;
+    width: 100%;
+    text-align: center;
+}
