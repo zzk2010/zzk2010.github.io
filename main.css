@@ -35,12 +35,5 @@ body{
     margin: 0 auto;
     background: rgba(255,255,255,.9);
 }
-#div_main h1,h2,h3{
-    text-align: center;
-    font-family: Consolas;
-}
-#div_main h1{font-size: 30pt;}
-#div_main h2{font-size: 15pt;}
-#div_main h3{font-size: 10pt;}
 a{color:#0969da;}
 a:hover{background: rgba(128,128,128,.5);}
