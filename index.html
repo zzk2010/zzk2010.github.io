@@ -1,8 +1,52 @@
-<!DOCTYPE html>
 <html>
-	<head>
-    	<link rel="stylesheet" href="./main.css">
-    	<link rel="stylesheet" href="./index.css">
+  <head>
+	  <style type="text/css">
+	  body{
+	      font-family: Consolas;
+	  	background: black;
+	  	background-image: url("./bg.jpg");
+	      background-repeat: no-repeat;
+	      background-size: 100% 100%;
+	      background-attachment: fixed;
+	  }
+	  #div_menu{
+	  	margin: 0 auto;
+	      display: flex;
+	      list-style-type: none;
+	      position: fixed;
+	      top: 0px;
+	      left: 0px;
+	      width: 100%;
+	      border-bottom-style: solid;
+	      background: white;
+	      z-index: 1024;
+	  }
+	  #div_menu a{
+	      float: left;
+	      padding-right: 12pt;
+	      padding-left: 12pt;
+	      padding-top: 12pt;
+	      padding-bottom: 12pt;
+	      text-decoration: none;
+	      color: black;
+	  }
+	  #div_main{
+	      padding-top: 60px;
+	      padding-bottom: 20px;
+	      min-height: 700px;
+	      width: 960px;
+	      margin: 0 auto;
+	      background: rgba(255,255,255,.9);
+	  }
+	  #div_main h1,h2,h3{
+	      text-align: center;
+	      font-family: Consolas;
+	  }
+	  #div_main h1{font-size: 30pt;}
+	  #div_main h2{font-size: 15pt;}
+	  #div_main h3{font-size: 10pt;}
+	  a{color:#0969da;}
+	  a:hover{background: rgba(128,128,128,.5);}</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 		<style type="text/css">
 			.STYLE1 {font-family: "Cambria Math";}
@@ -10,6 +54,7 @@
 			body {
 				margin-left: 100px;
 				margin-right: 100px;
+				margin-top:100px;
 			}
 			.STYLE3 {font-family: "Courier New"; font-size: large; }
 		</style>
@@ -18,6 +63,7 @@
 		<title>zzk的个人主页</title>
 	</head>
 	<body>
+		<h1 align="center" class="STYLE1" style="z-index:999;color:white">Welcome to ZZK's Website!</h1>
 		<div id="div_menu">
 			<a style="margin-right:40px;" href="javascript:history.go(-1)">← 返回</a>
 			<a href="./" style="cursor: pointer;text-decoration: none;color: black;font-weight: 60;font-size: 20px;font-family: Consolas;text-align: center;">zzk2010</a>
@@ -28,6 +74,8 @@
 			<a href="./articles/">文章</a>
 			<a href="links.html">链接</a>
 	   	</div>
-		<h1 class="STYLE1">Welcome to ZZK's Website!</h1>
+		<div id="txtpad">
+			<div align="center" style="margin-left:auto; margin-right:auto; margin-bottom:50px; background-color: white; width:700px; height:1000px;"></div>
+		</div>
 	</body>
 </html>
