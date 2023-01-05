@@ -3,16 +3,13 @@
 }
 #div_introduction{
     left: 30px;
-    top: 100px;
+	right: 30px;
+    top: 50px;
     position: absolute;
-    width: 200px;
     border-style: solid;
     border-color: rgb(255,96,0);
     border-width: 2px;
     z-index: 0;
-}
-#div_introduction p{
-    margin-left: 15px;
 }
 #copyright{
     position: absolute;
