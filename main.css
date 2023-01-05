@@ -1,4 +1,4 @@
-body{
+body {
     font-family: Consolas;
 	background: black;
 	background-image: url("./bg.jpg");
@@ -6,7 +6,7 @@ body{
     background-size: 100% 100%;
 	background-attachment: fixed;
 }
-#div_menu{
+#div_menu {
 	margin: 0 auto;
     display: flex;
     list-style-type: none;
@@ -18,7 +18,7 @@ body{
     background: white;
     z-index: 1024;
 }
-#div_menu a{
+#div_menu a {
     float: left;
     padding-right: 12pt;
     padding-left: 12pt;
@@ -27,7 +27,7 @@ body{
     text-decoration: none;
     color: black;
 }
-#div_main{
+#div_main {
     padding-top: 60px;
     padding-bottom: 20px;
     min-height: 700px;
