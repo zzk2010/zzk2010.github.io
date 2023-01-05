@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
 	<link rel="stylesheet" href="./main.css">
@@ -7,20 +8,29 @@
 		<title>zzk的个人主页</title>
 	</head>
 	<body>
-		<h1 align="center" class="STYLE1" style="z-index:999;color:white;margin-top:100px">Welcome to ZZK's Website!</h1>
+		<div id="top">
+			<a style="position:fixed;top:-100px"></a>
+		</div>
+		<div id="headline">
+			<h1 align="center" class="STYLE1" style="z-index:999;color:white;margin-top:100px">Welcome to ZZK's Website!</h1>
+		</div>
 		<div id="div_menu">
-			<a style="margin-right:40px;" href="javascript:history.go(-1)">← 返回</a>
-			<a href="./" style="cursor: pointer;text-decoration: none;color: black;font-weight: 60;font-size: 20px;font-family: Consolas;text-align: center;">zzk2010</a>
-			<a href="./" style="background: rgba(128,128,128,.3);">主页</a>
+			<a href="javascript:history.go(-1)">← 返回</a>
+			<a href="https://zzk2010.github.io" style="font-size: 20px;">zzk2010</a>
+			<a href="https://zzk2010.github.io" style="background: rgba(128,128,128,.3);">主页</a>
 			<a href="./softwares/">软件</a>
 			<a href="./downloads/">下载</a>
 			<a href="./source_code/">源代码</a>
 			<a href="./articles/">文章</a>
 			<a href="links.html">链接</a>
 	   	</div>
-		<div id="txtpad">
-			<div align="center" style="margin-left:auto; margin-right:auto; margin-top:30px; margin-bottom:30px; background-color:whitesmoke; width:700px; height:1000px;"></div>
+		<div id="div_main">
+			<div id="div_introduction">
+				<h2 style="margin-left:10px;color:green;text-align:center">zzk2010</h2>
+				<p style="text-align:center;">你好</p>
+			</div>
 		</div>
 		<p id="acknowledgement" style="text-align:center; color:darkgrey">zzk2010.github.io INNOVATED by zero-range.github.io</p>
+		<a href="#top">"to top"</a>
 	</body>
 </html>
