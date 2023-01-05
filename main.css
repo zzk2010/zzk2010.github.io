@@ -4,7 +4,7 @@ body{
 	background-image: url("./bg.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-attachment: fixed;
+	background-attachment: fixed;
 }
 #div_menu{
 	margin: 0 auto;
@@ -31,7 +31,6 @@ body{
     padding-top: 60px;
     padding-bottom: 20px;
     min-height: 700px;
-    width: 960px;
     margin: 0 auto;
     background: rgba(255,255,255,.9);
 }
