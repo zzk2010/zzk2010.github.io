@@ -1,0 +1,19 @@
+#div_blog {
+	margin-top: 20px;
+	margin-left: 14%;
+	margin-right: 14%;
+	display: flex;
+	top: 0px;
+	left: 0px;
+	min-height: 80px;
+	border-bottom-style: none;
+	background-color: rgb(51, 0, 127);
+	z-index: 1024;
+}
+#div_title {
+	color: white;
+	padding-left: 3%;
+	padding-right: 3%;
+	font-size: 150%;
+	text-decoration: none;
+}
