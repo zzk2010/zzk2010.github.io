@@ -1,4 +1,6 @@
 #div_blog {
+	border: 1px solid;
+	border-radius: 10px;
 	margin-top: 20px;
 	margin-left: 14%;
 	margin-right: 14%;
@@ -6,7 +8,6 @@
 	top: 0px;
 	left: 0px;
 	min-height: 80px;
-	border-bottom-style: none;
 	background-color: rgb(51, 0, 127);
 	z-index: 1024;
 }
