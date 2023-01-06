@@ -1,10 +1,5 @@
 body {
     font-family: Consolas;
-	background: black;
-	background-image: url("./bg.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-	background-attachment: fixed;
 }
 #div_menu {
 	margin: 0 auto;
