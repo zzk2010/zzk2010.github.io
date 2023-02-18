@@ -1,35 +1,48 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/index.css">
-	  <title>友链</title>	
-  </head>
-  <body>
-	<body background="./images/bg.jpg" style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed"></body>
-	<div id="div_menu">
-		<a href="javascript:history.go(-1)">← 返回</a>
-		<a href="https://zzk2010.github.io" style="font-size: 18px;">zzk2010</a>
-		<a href="https://zzk2010.github.io">主页</a>
-		<a href="./softwares/">软件</a>
-		<a href="./downloads/">下载</a>
-		<a href="./source_code/">源代码</a>
-		<a href="https://www.luogu.com.cn/blog/zzk2010-blog/">文章</a>
-		<a href="./links.html" style="background: rgba(128,128,128,.3);">链接</a>
-	</div>
-    <div id="headline">
-    	<h1 align="center" class="STYLE1" style="z-index:999;color:white;margin-top:100px">友链</h1>
-    </div>
-    <div>
-      <h3><a href="https://jerrywang2009.github.io" class="link">Jerry Wang's Page</a></h3>
-	  <p style="color:lightblue">非常有趣的一个网站</p>
-    </div>
-    <div>
-      <h3><a href="https://hbzsoft.github.io" class="link">HBZ's Page</a></h3>
-	  <p style="color:lightblue">各类软件</p>
-	</div>
-    <div>
-      <h3><a href="https://zero-range.github.io" class="link" style="background">Orange's Page</a></h3>
-      <p style="color:lightblue">精美的一个网站</p>
-	</div>
-  </body>
+	<head>
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" href="./styles/index.css">
+	</head>
+	<body>
+		<div id="div_menu">
+			<a href="javascript:history.go(-1)">← 返回</a>
+			<a href="https://zzk2010.github.io" style="cursor: pointer;text-decoration: none;color: black;font-weight: 60;font-size: 20px;font-family: Consolas;text-align: center;">zzk2010</a>
+			<a href="https://zzk2010.github.io">主页</a>
+			<a href="./softwares/">软件</a>
+			<a href="./downloads/">下载</a>
+			<a href="./source-code/">源代码</a>
+			<a href="./articles.html">文章</a>
+			<a href="./links.html" style="background: rgba(128,128,128,.3);">链接</a>
+			<input type="button" onclick="a()" value="更改至深色" id="buu">
+		</div>
+		<div id="headline">
+			<h1 align="center" class="STYLE1" id="b1" style="z-index:999;margin-top:100px">友链</h1>
+		</div>
+		<div>
+			<h3><a href="https://jerrywang2009.github.io" class="link">Jerry Wang's Page</a></h3>
+			<p style="color:lightblue">非常有趣的一个网站</p>
+		</div>
+		<div>
+			<h3><a href="https://hbzsoft.github.io" class="link">HBZ's Page</a></h3>
+			<p style="color:lightblue">各类软件</p>
+		</div>
+		<div>
+			<h3><a href="https://zero-range.github.io" class="link" style="background">Orange's Page</a></h3>
+			<p style="color:lightblue">精美的一个网站</p>
+		</div>
+	</body>
+	<script>
+		var buu = document.getElementById("buu");
+		var body = document.body;
+		let array = ["white", "black"];
+		let array2 = ["black", "white"];
+		let txt = ["更改至深色", "更改至浅色"];
+		let index = 1;
+		function a () {
+			document.getElementById("b1").style.color = array2[index];
+			body.style.backgroundColor = array[index];
+			document.getElementById("buu").value = txt[index];
+			index = (index + 1) % array.length;
+		}
+	</script>
 </html>
