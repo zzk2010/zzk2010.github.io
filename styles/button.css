@@ -1,0 +1,14 @@
+#div_button {
+	margin-left:15px;
+	margin-top:10px;
+	margin-bottom:10px;;
+	width:110px;
+	height:30px;
+	color:white;
+	font-size:120%;
+	font-family:Consolas;
+	text-align:center;
+	border:none;
+	border-radius:15px;
+	background-color:#5bb888;
+}
