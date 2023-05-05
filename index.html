@@ -3,50 +3,54 @@
 	<head>
 		<link rel="stylesheet" href="./styles/main.css">
 		<link rel="stylesheet" href="./styles/index.css">
+		<link rel="stylesheet" href="styles/button.css">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>zzk的个人主页</title>
 	</head>
 	<body>
-		<div id="top">
-			<a style="position:fixed;top:-100px"></a>
+		<div style="width:100%;background:lightyellow;position:fixed;top:0px;left:0px;margin-bottom:50px;">
+			<button id="div_button">
+				<a href="https://zzk2010.github.io" style="color:white;text-decoration:none;">Home Page</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/links.html"  style="color:white;text-decoration:none;">Links</a>
+			</button>
+			<button id="div_button">
+				<a href="https://www.luogu.com.cn/blog/zzk2010-blog/"  style="color:white;text-decoration:none;">Articles</a>
+			</button>
+			<input type="button" onclick="a()" value="Light Mode" id="btn" style="color:white;background:black;border-width:10px;border-color:white;">
 		</div>
 		<div id="headline">
-			<h1 align="center" class="STYLE1" id="b1" style="z-index:999;margin-top:100px">Welcome to ZZK's Website!</h1>
+			<p style="font-size:200%;color:white;margin-left:10px;font-family:MV Boli;">Welcome to ZZK's website!</p>
 		</div>
-		<div id="div_menu">
-			<a href="javascript:history.go(-1)">← 返回</a>
-			<a href="https://zzk2010.github.io" style="font-size: 18px;">zzk2010</a>
-			<a href="https://zzk2010.github.io" style="background: rgba(128,128,128,.3);">主页</a>
-			<a href="https://www.luogu.com.cn/blog/zzk2010-blog/">文章</a>
-			<a href="./links.html">链接</a>
-			<input type="button" onclick="a()" value="更改至深色" id="btn">
-	   	</div>
-		<div id="div_main">
-			<div id="div_introduction">
-				<img src="images/icons/avatar.png" alt="Avatar" style="max-width:37%;margin-top:20px;margin-bottom:0px;margin-bottom:20px;margin-left:5%;margin-right:5%;border-radius:100%;"/>
-				<img src="images/icons/github-mark.png" style="position:absolute;height:30px;margin-top:20px;"/>
-				<a href="https://github.com/zzk2010" style="color:black;text-decoration:none;position:absolute;margin-top:25px;margin-left:40px;margin-right:10%;">我的Github档案</a>
-				<img src="https://cdn.luogu.com.cn/fe/logo-single.png" style="background-color:rgb(52, 152, 219);position:absolute;height:30px;margin-top:80px;"/>
-				<a href="https://www.luogu.com.cn/user/773060" style="color:rgb(52, 152, 219);text-decoration:none;position:absolute;margin-top:85px;margin-left:40px;margin-right:10%;">我的洛谷号（绿名蒟蒻一枚）</a>
-				<h2 style="color:green;margin-left:6%;margin-top:0%;">zzk2010</h2>
+		<div style="margin-left:25px;margin-right:25px">
+			<p id="b1" style="font-size:200%;color:#505050;margin-left:10px;font-family:Impact;">About Me</p>
+			<div id="div_introduction" style="background-color:whitesmoke;padding-bottom:5px;font-size:120%;">
+				<img src="images/icons/avatar.png" alt="Avatar" style="max-width:30%;margin-top:20px;margin-bottom:20px;margin-left:20px;margin-right:20px;border-radius:100%;">
+				<img src="images/icons/github-mark.png" style="position:absolute;height:30px;margin-top:20px;margin-left:10px;">
+				<a href="https://github.com/zzk2010" style="color:black;text-decoration:none;position:absolute;margin-top:25px;margin-left:50px;margin-right:10%;">My Github</a>
+				<img src="https://cdn.luogu.com.cn/fe/logo-single.png" style="background-color:rgb(52, 152, 219);position:absolute;height:30px;margin-top:70px;margin-left:10px;">
+				<a href="https://www.luogu.com.cn/user/773060" style="color:rgb(52, 152, 219);text-decoration:none;position:absolute;margin-top:75px;margin-left:50px;margin-right:10%;">My Luogu Account</a>
+				<h4 style="color:green;margin-left:20px;margin-right:5px;margin-top:-20px;">Kevin Zhao</h4>
 			</div>
 		</div>
-		<p id="acknowledgement" style="text-align:center; color:darkgrey">zzk2010.github.io INNOVATED by zero-range.github.io</p>
-		<a href="#top" style="text-decoration:none;position:fixed;bottom:0px;background:rgba(194, 194, 194, 0.9);border-radius:10%;">to top</a>
+		<p id="acknowledgement" style="font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;text-align:center;color:darkgrey;">zzk2010.github.io © 2022-2023.<br/>All Rights Reserved.</p>
 	</body>
 	<script>
 		var btn = document.getElementById("btn");
 		var body = document.body;
 		let array = ["white", "black"];
 		let array2 = ["black", "white"];
-		let txt = ["更改至深色", "更改至浅色"];
+		let array3 = ["grey", "white"];
+		let txt = ["Light Mode", "Dark Mode"];
 		let index = 1;
 		function a () {
 			document.getElementById("b1").style.color = array2[index];
 			body.style.backgroundColor = array[index];
 			document.getElementById("btn").value = txt[index];
 			index = (index + 1) % array.length;
+			document.getElementById("btn").style.borderColor = array2[index];
 		}
 	</script>
 </html>
