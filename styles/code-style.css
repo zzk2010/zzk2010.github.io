@@ -47,6 +47,7 @@
 .hljs-selector-tag,
 .hljs-variable {
   color: #00c3ff !important;
+  font-weight: 900;
 }
 .hljs-attr,
 .hljs-params {
