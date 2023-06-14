@@ -1,1 +1,1 @@
-# Styles (.css)
+# Styles
