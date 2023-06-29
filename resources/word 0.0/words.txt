@@ -1,14 +1,2 @@
-2023 6 29
-12
-analysis 分析 0 0 1 0
-archaic 古老的 0 0 4 1
-play 戏剧 0 0 3 1
-very 非常 0 0 2 1
-delightful 愉快的 0 0 1 1
-forward 向前 0 0 1 1
-happy 快乐的 0 0 1 1
-mine 我的 0 0 1 1
-obey 遵守 0 0 1 1
-plan 计划 0 0 1 1
-pretty 漂亮的，好的 0 0 1 1
-use 使用 0 0 1 1
+-1 -1 -1
+0
