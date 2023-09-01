@@ -41,6 +41,10 @@
 				<p style="color:lightblue">The new generation of judging.</p>
 			</div>
 		</div>
+		<div>
+			<p id="TOP" style="position:fixed;color:#000000;bottom:0px;left:17px;">to top</p>
+			<a href=# style="position:fixed;background-color:#c8c8c8;opacity:70%;height:30px;min-width:70px;border-radius:10px;bottom:10px;"></a>
+		</div>
 		<p id="acknowledgement" style="font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;text-align:center;color:darkgrey;">zzk2010.github.io © 2022-2023.<br/>All Rights Reserved.</p>
 	</body>
 	<script>
@@ -53,6 +57,7 @@
 		let index = 1;
 		function a () {
 			document.getElementById("b1").style.color = array2[index];
+			document.getElementById("TOP").style.color = array2[index];
 			body.style.backgroundColor = array[index];
 			document.getElementById("btn").value = txt[index];
 			index = (index + 1) % array.length;
