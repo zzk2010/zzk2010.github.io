@@ -21,6 +21,3 @@ The Judge will return three kinds of message: Compile Error, Wrong Answer and Ac
 ### FAQ
 Q: How does this Offline Judge judge my program?\
 A: It uses g++.exe for compiling and fc for judging.
-
-Q: Where is the executable file?\
-A: Under C:\Program Files (x86)\Offline Judge, your executable file will be saved as test.exe.
