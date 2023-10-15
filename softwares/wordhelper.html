@@ -34,7 +34,7 @@
 			<img src="./Word Helper/image1.jpg" alt="image1" style="width:80%;margin-left:10%;">
 			<div>
 				<h3 id="b1">Click here for <a href="https://zzk2010.github.io/softwares/Word Helper/beta release.zip" style="text-decoration:none">beta release</a></h3>
-				<h3 id="b1">For further information, please visit <a href="https://github.com/zzk2010/zzk2010.github.io/tree/main/softwares/Word%20Helper" style="text-decoration:none">Word Helper</a></h3>
+				<h3 id="b2">For further information, please visit <a href="https://github.com/zzk2010/zzk2010.github.io/tree/main/softwares/Word%20Helper" style="text-decoration:none">Word Helper</a></h3>
 				<p style="color:lightblue">Designed to help your vocabulary!</p>
 			</div>
 		</div>
@@ -50,6 +50,7 @@
 		let index = 1;
 		function a () {
 			document.getElementById("b1").style.color = array2[index];
+			document.getElementById("b2").style.color = array2[index];
 			body.style.backgroundColor = array[index];
 			document.getElementById("btn").value = txt[index];
 			index = (index + 1) % array.length;
