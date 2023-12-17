@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="./styles/main.css">
+		<link rel="stylesheet" href="https://zzk2010.github.io/styles/index.css">
+		<link rel="stylesheet" href="https://zzk2010.github.io/styles/button.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Articles</title>
+	</head>
+	<body>
+		<div style="width:100%;background:lightyellow;top:0px;left:0px;">
+			<button id="div_button">
+				<a href="https://zzk2010.github.io" style="color:white;text-decoration:none;">Home Page</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/links.html"  style="color:white;text-decoration:none;">Links</a>
+			</button>
+			<button id="div_button">
+				<a href="https://www.luogu.com.cn/blog/zzk2010-blog/"  style="color:white;text-decoration:none;">Articles</a>
+			</button>
+			<button id="div_button">
+				<a href="https://note.ms/zzk2010"  style="color:white;text-decoration:none;">Msg Board</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/soft.html"  style="color:white;text-decoration:none;">Softwares</a>
+			</button>
+			<input type="button" onclick="a()" value="Light Mode" id="btn" style="color:white;background:black;border-width:10px;border-color:white;">
+		</div>
+		<div id="headline">
+			<p style="font-size:200%;color:white;margin-left:10px;margin-top:-50px;font-family:MV Boli;">Articles</p>
+		</div>
+		<div id="main" style="background:beige;margin-left:10%;margin-right:10%;">
+			<a href="https://zzk2010.github.io/article/CF575A" style="display:flex;margin-bottom:10px;border-radius:10px;padding-left:20px;padding-right:15px;padding-top:10px;padding-bottom:10px;text-decoration:none;font-size:150%;font-weight:700;">
+				CF575A
+			</a>
+		</div>
+		<p id="acknowledgement" style="font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;text-align:center;color:darkgrey;">zzk2010.github.io © 2022-2023.<br/>All Rights Reserved.</p>
+	</body>
+	<script>
+		var body = document.body;
+		let array = ["white", "black"];
+		let txt = ["Light Mode", "Dark Mode"];
+		let index = 1;
+		function a () {
+			body.style.backgroundColor = array[index];
+			document.getElementById("btn").style.borderColor = array[index];
+			document.getElementById("btn").value = txt[index];
+			index = (index + 1) % array.length;
+		}
+	</script>
+</html>
