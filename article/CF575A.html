@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../styles/main.css">
+		<link rel="stylesheet" href="../styles/index.css">
+		<link rel="stylesheet" href="../styles/button.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/x-mathjax-config">
+		    MathJax.Hub.Config({
+		        tex2jax: {inlineMath: [['$', '$']]},
+		        messageStyle: "none"
+		    });
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/marked@3.0.0/marked.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+		
+		<!-- and it's easy to individually load additional languages -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+		
+		<script>hljs.highlightAll();</script>
+		<title>My blog</title>
+	</head>
+	<body>
+		<div style="width:100%;background:lightyellow;top:0px;left:0px;margin-bottom:30px;">
+			<button id="div_button">
+				<a href="https://zzk2010.github.io" style="color:white;text-decoration:none;">Home Page</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/links.html"  style="color:white;text-decoration:none;">Links</a>
+			</button>
+			<button id="div_button">
+				<a href="https://www.luogu.com.cn/blog/zzk2010-blog/"  style="color:white;text-decoration:none;">Articles</a>
+			</button>
+			<button id="div_button">
+				<a href="https://note.ms/zzk2010"  style="color:white;text-decoration:none;">Msg Board</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/soft.html"  style="color:white;text-decoration:none;">Softwares</a>
+			</button>
+			<input type="button" onclick="a()" value="Light Mode" id="btn" style="color:white;background:black;border-width:10px;border-color:white;">
+		</div>
+		<div id="main" style="margin-left:5%;margin-right:5%;border-radius: 10px;background: beige;">
+			<div style="padding-left:15px; padding-right:15px; padding-top:5px; padding-bottom:5px;">
+				<code markdown>
+# CF575A
+				
+[传送门](https://www.luogu.com.cn/problem/CF575A)
+
+## 简要题意
+
+给定序列 $s_0,s_1,s_2,\dots,s_{n-1}$，对于 $i \ge n$，特殊给出 $m$ 个 $s_i$，满足 $s_i \not= s_{i \bmod n}$，其他 $s_i$ 都满足 $s_i = s_{i \bmod n}$。
+
+定义序列 $F$，$F$ 满足递推式 $F_n = s_{n-1} \cdot F_{n-1} + s_{n-2} \cdot F_{n-2}$，其中 $F_0 = 0, F_1 = 1$。
+
+给出 $K, P$，请你求出 $F_K \bmod P$ 的值。
+
+## 分析
+
+$F$ 序列和斐波那契序列很像，因此考虑用矩阵来做转移：
+
+$$
+\begin{pmatrix}
+   f_{i-2} & f_{i-1}
+\end{pmatrix}
+\begin{pmatrix}
+   0 & s_{i-2} \\
+   1 & s_{i-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+   f_{i-1} & f_{i}
+\end{pmatrix}
+$$
+
+但是这样定义矩阵的话，对于 $m$ 个特殊的 $s_i$，每个特殊值会影响两个矩阵，写起来有一车细节，很不舒服。所以我们把矩阵递推式改一改：
+
+$$
+\begin{pmatrix}
+   f_{i-2} s_{i-2} & f_{i-1}
+\end{pmatrix}
+\begin{pmatrix}
+   0 & 1 \\
+   s_{i-1} & s_{i-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+   f_{i-1} s_{i-1} & f_{i}
+\end{pmatrix}
+$$
+
+这么一来，每个特殊值只会影响一个矩阵。下文中，记 $A_i$ 表示 $s_i$ 对应的形如 $\begin{pmatrix} 0 & 1 \\ s_i & s_i \end{pmatrix}$ 的矩阵。
+
+当 $m = 0$ 时，我们有
+
+$$
+\begin{pmatrix}
+   f_{k-1}s_{k-1} & f_{k}
+\end{pmatrix}
+=
+\begin{pmatrix}
+   f_0s_0 & f_1
+\end{pmatrix} 
+\times \prod_{i=1}^k A_i 
+$$
+
+当 $m \not= 0$ 时，我们先把 $m$ 个特殊值按下标排序，得到 $s_{indx_1},s_{indx_2},\dots,s_{indx_m}$，其中 $indx$ 数组代表特殊值的下标。
+
+考虑到 $m$ 个特殊值把 $1$ 到 $k$ 分成了 $m+1$ 段，那我们就一段一段的乘起来。每一段的长度都可以表示为一个 $pn+q$ 的形式，而这一段内的矩阵都是重复的。因此，我们可以维护任意长度小于等于 $n$ 的区间矩阵之积，快速幂即可。对于特殊值，单独乘起来即可。
+
+维护长度小于等于 $n$ 的区间矩阵之积可以用线段树。
+
+## 一些细节
+
++ 线段树可以维护 $0$ 到 $2n-1$ 的矩阵积，这样不用特判 $l \bmod n$ 与 $r \bmod n$ 之间的大小关系。注意要开八倍空间。
+
++ 特判 $k = 0$ 的情况，因为我们的初始矩阵就是 $\begin{pmatrix} f_0s_0 & f_1 \end{pmatrix}$。
+
+不懂可以配合代码食用：
+
+<pre><code class="languages-cpp">
+#include &ltbits/stdc++.h>
+#define int long long
+#define FOR(i, a, b) for(int i = a; i <= b; i++)
+#define ROF(i, a, b) for(int i = a; i >= b; i--)
+using namespace std;
+const int N = 5e4+5;
+int s[N], k, p, n, m;
+//矩阵板子 
+struct mat {
+	int a[3][3];
+	mat(int x = 0){
+		memset(a, 0, sizeof(a));
+		if (x) a[1][1] = a[2][2] = 1;
+	}
+	void print() {
+		FOR(i, 1, 2) {
+			FOR(j, 1, 2) cout << a[i][j] << ' ';
+			cout << endl;
+		}
+		return;
+	}
+} ans;
+mat operator*(mat a, mat b) {
+	mat c;
+	FOR(i, 1, 2) FOR(j, 1, 2) FOR(k, 1, 2) c.a[i][j] = (c.a[i][j] + a.a[i][k] * b.a[k][j] % p) % p;
+	return c;
+}
+mat qpow(mat a, int p) {
+	mat res(1);
+	while (p) {
+		if (p & 1) res = res * a;
+		a = a * a;
+		p >>= 1;
+	}
+	return res;
+}
+mat Mat(int a, int b, int c, int d) {  //给矩阵赋值 
+	mat A;
+	A.a[1][1] = a, A.a[1][2] = b, A.a[2][1] = c, A.a[2][2] = d;
+	return A;
+}
+
+//线段树板子 
+struct node { mat a; int l, r; } t[N << 3];  //八倍空间 
+void pushup(int p) {
+	t[p].a = t[p << 1].a * t[p << 1 | 1].a;
+	return;
+}
+void build(int L, int R, int p) {
+	t[p].l = L, t[p].r = R;
+	if (L == R) {
+		t[p].a = Mat(0, 1, s[L % n], s[L % n]);
+		return;
+	}
+	int mid = (L + R) >> 1;
+	build(L, mid, p << 1), build(mid+1, R, p << 1 | 1);
+	pushup(p);
+	return;
+}
+mat query(int L, int R, int p) {
+	if (L <= t[p].l && t[p].r <= R) return t[p].a;
+	int mid = (t[p].l + t[p].r) >> 1;
+	mat res(1);
+	if (L <= mid) res = res * query(L, R, p << 1);
+	if (mid+1 <= R) res = res * query(L, R, p << 1 | 1);
+	return res;
+}
+
+struct change { int indx, v; } a[N];   //记录特殊值的信息 
+mat get(int l, int r) {                //获取[l,r]之间的矩阵积，[l,r]是长度小于等于n的区间 
+	mat tmp(1);
+	if (l > r) return tmp;             //l>r就返回单位矩阵 
+	l %= n, r %= n;
+	if (l > r) r += n;
+	return query(l, r, 1);             //维护[0,2n-1]区间矩阵积的目的就在这里 
+}
+mat work(int l, int r) {               //获取任意[l,r]之间的矩阵积 
+	mat tmp(1);
+	if (l > r) return tmp;             //l>r就返回单位矩阵 
+	//pn+q中，p=(r-l+1)/n，然后剩下的区间一定长度小于n，左端点调整完后直接get即可 
+	tmp = tmp * qpow(get(l, l+(r-l+1)/n*n-1), (r-l+1) / n);
+	tmp = tmp * get(l+(r-l+1)/n*n, r);
+	return tmp;
+}
+signed main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	cin >> k >> p >> n;
+	FOR(i, 0, n-1) cin >> s[i];
+	build(0, n+n-1, 1);          //[0,2n-1]区间矩阵积 
+	cin >> m;
+	FOR(i, 1, m) cin >> a[i].indx >> a[i].v;
+	if (k == 0) {
+		cout << 0;
+		return 0;
+	}
+	sort(a+1, a+m+1, [](change A, change B){ return A.indx < B.indx; }); //按下标排序 
+	int i = 1;
+	ans = Mat(0, 1, 0, 0);
+	for(; i <= m && a[i].indx < k; i++) {
+		int S = a[i-1].indx, T = a[i].indx;
+		ans = ans * work(S+1, T-1) * Mat(0, 1, a[i].v % p, a[i].v % p);
+	}
+	if (a[i-1].indx < k) {
+		int S = a[i-1].indx, T = k-1;
+		ans = ans * work(S+1, T);
+	}
+	cout << ans.a[1][2] % p;
+	return 0;
+}
+</code></pre>
+
+			</code></div>
+		</div>
+		<p id="end" style="text-align:center;color:darkgrey;font-size:30px;">--THE END--</p>
+		<p id="acknowledgement" style="font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;text-align:center;color:darkgrey;">zzk2010.github.io © 2022-2023.<br/>All Rights Reserved.</p>
+		<script>
+		    var m = document.querySelectorAll('code[markdown]');
+		    for (var i = 0; i < m.length; i++) {
+		        m[i].outerHTML = marked.parse(m[i].innerHTML.trim());
+			}
+		</script>
+	</body>
+	<script>
+		var body = document.body;
+		let array = ["white", "black"];
+		let txt = ["Light Mode", "Dark Mode"];
+		let index = 1;
+		function a () {
+			body.style.backgroundColor = array[index];
+			document.getElementById("btn").style.borderColor = array[index];
+			document.getElementById("btn").value = txt[index];
+			index = (index + 1) % array.length;
+		}
+	</script>
+</html>
