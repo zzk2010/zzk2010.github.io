@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://zzk2010.github.io/styles/main.css">
+		<link rel="stylesheet" href="https://zzk2010.github.io/styles/index.css">
+		<link rel="stylesheet" href="https://zzk2010.github.io/styles/button.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8">
+		<title>Softwares</title>
+	</head>
+	<body>
+		<div style="width:100%;background:lightyellow;position:fixed;top:0px;left:0px;margin-bottom:50px;">
+			<button id="div_button">
+				<a href="https://zzk2010.github.io" style="color:white;text-decoration:none;">Home Page</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/links.html"  style="color:white;text-decoration:none;">Links</a>
+			</button>
+			<button id="div_button">
+				<a href="https://www.luogu.com.cn/blog/zzk2010-blog/"  style="color:white;text-decoration:none;">Articles</a>
+			</button>
+			<button id="div_button">
+				<a href="https://note.ms/zzk2010"  style="color:white;text-decoration:none;">Msg Board</a>
+			</button>
+			<button id="div_button">
+				<a href="https://zzk2010.github.io/soft.html"  style="color:white;text-decoration:none;">Softwares</a>
+			</button>
+			<input type="button" onclick="a()" value="Light Mode" id="btn" style="color:white;background:black;border-width:10px;border-color:white;">
+		</div>
+		<div id="headline">
+			<p style="font-size:200%;color:white;margin-left:10px;font-family:MV Boli;">Offline Judge</p>
+		</div>
+		<div>
+			<img src="./Offline Judge/image1.jpg" alt="image1" style="width:80%;margin-left:10%;">
+			<div>
+				<h3 id="b1">Click here for <a href="https://zzk2010.github.io/softwares/Offline Judge/compiler.exe" style="text-decoration:none">beta release</a></h3>
+				<h3 id="b2">For further information, please visit <a href="https://github.com/zzk2010/zzk2010.github.io/tree/main/softwares/Offline Judge" style="text-decoration:none">Offline Judge</a></h3>
+				<p style="color:lightblue">The new generation of judging.</p>
+			</div>
+		</div>
+		<p id="acknowledgement" style="font-family:'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;text-align:center;color:darkgrey;">zzk2010.github.io © 2022-2023.<br/>All Rights Reserved.</p>
+	</body>
+	<script>
+		var btn = document.getElementById("btn");
+		var body = document.body;
+		let array = ["white", "black"];
+		let array2 = ["black", "white"];
+		let array3 = ["grey", "white"];
+		let txt = ["Light Mode", "Dark Mode"];
+		let index = 1;
+		function a () {
+			document.getElementById("b1").style.color = array2[index];
+			document.getElementById("b2").style.color = array2[index];
+			body.style.backgroundColor = array[index];
+			document.getElementById("btn").value = txt[index];
+			index = (index + 1) % array.length;
+			document.getElementById("btn").style.borderColor = array2[index];
+		}
+	</script>
+</html>
